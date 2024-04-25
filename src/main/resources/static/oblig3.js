@@ -1,7 +1,7 @@
 function validerFilm(film) {
     let ingenFeil;
     if (film === " ") {
-        $("#filmFeil").html("Velg en film!");
+        $("#filmFeil").html(" Velg en film!");
         ingenFeil = false;
     } else {
         $("#filmFeil").html("");
@@ -117,7 +117,7 @@ function kjopBillett() {
     $.post("/kjopBilletter", bestilling, function(){
         hentBestillinger();
         // Tømmer inputfeltene
-        $("#filmer").val("");
+        $("#filmer").val(" ");
         $("#antall").val("");
         $("#fornavn").val("");
         $("#etternavn").val("");
