@@ -1,5 +1,6 @@
 package com.example.obligoppgave3;
 
+// POJO-klasse
 public class Bestilling {
     private int id;
     private String film, antall, fornavn, etternavn, telefonnr, epost;

@@ -1,3 +1,4 @@
+// Validerer film-input
 function validerFilm(film) {
     let ingenFeil;
     if (film === " ") {
@@ -10,6 +11,7 @@ function validerFilm(film) {
     return ingenFeil;
 }
 
+// Validerer antall-input
 function validerAntall(antall) {
     let ingenFeil;
     if (isNaN(antall)) {
@@ -28,6 +30,7 @@ function validerAntall(antall) {
     return ingenFeil;
 }
 
+// Validerer fornavn-input
 function validerFornavn(fornavn) {
     let ingenFeil;
     const regexp = /^[a-zA-ZæøåÆØÅ. \-]{2,20}$/
@@ -42,6 +45,7 @@ function validerFornavn(fornavn) {
     return ingenFeil;
 }
 
+// Validerer etternavn-input
 function validerEtternavn(etternavn) {
     let ingenFeil;
     const regexp = /^[a-zA-ZæøåÆØÅ. \-]{2,30}$/;
@@ -56,6 +60,7 @@ function validerEtternavn(etternavn) {
     return ingenFeil;
 }
 
+// Validerer telefonnr-input
 function validerTelefonnr(telefonnr) {
     let ingenFeil;
     const regexp = /^[94]\d{7}$/;
@@ -70,6 +75,7 @@ function validerTelefonnr(telefonnr) {
     return ingenFeil;
 }
 
+// Validerer epost-input
 function validerEpost(epost) {
     let ingenFeil;
     const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -85,6 +91,7 @@ function validerEpost(epost) {
 }
 
 function validerOgKjopBillett() {
+    // Validerer alle input-felter og kaller kun kjopBillett hvis ingen har feil
     let filmOK = validerFilm($("#filmer").val());
     let antallOK = validerAntall($("#antall").val());
     let fornavnOK = validerFornavn($("#fornavn").val());
@@ -114,6 +121,7 @@ function kjopBillett() {
         epost : innEpost
     }
 
+    // Sender bestillingsobjektet til server/database
     $.post("/kjopBilletter", bestilling, function(){
         hentBestillinger();
         // Tømmer inputfeltene
